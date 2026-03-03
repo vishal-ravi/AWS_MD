@@ -1,0 +1,33 @@
+;
+;	File 'topol_Ion_chain_A2.itp' was generated
+;	By user: vishal (1000)
+;	On host: spiderweb
+;	At date: Fri Jan 16 12:51:38 2026
+;
+;	This is a include topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2025.2 (-:
+;	
+;	Executable:   /usr/local/gromacs/bin/gmx
+;	Data prefix:  /usr/local/gromacs
+;	Working dir:  /home/vishal/Documents/Aparna/3BWY_Adenosylhomocysteine_MD
+;	Command line:
+;	  gmx pdb2gmx -f REC.pdb -ignh
+;	Force field was read from current directory or a relative path - path added.
+;
+
+[ moleculetype ]
+; Name            nrexcl
+Ion_chain_A2        3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue 300 MG  rtp MG   q +2.0
+     1         MG    300     MG     MG      1          2     24.305   ; qtot 2
+
+; Include Position restraint file
+#ifdef POSRES
+#include "posre_Ion_chain_A2.itp"
+#endif
+

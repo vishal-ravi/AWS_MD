@@ -1,0 +1,28 @@
+Build Docker Image
+
+docker build -t gromacs-h200:2024.4 .
+
+
+Mount Your 500GB Storage
+Assume your EBS is mounted:
+
+/mnt/md_storage
+
+Move your project:
+mv gromacs_data /mnt/md_storage/
+
+Now full path:
+/mnt/md_storage/gromacs_data
+
+
+Run Container Properly (H200 + 22 cores)
+
+docker run --gpus all \
+  --cpus="22" \
+  --memory="200g" \
+  --shm-size=16g \
+  -v /mnt/md_storage/gromacs_data:/data \
+  -w /data \
+  gromacs-h200:2024.4 \
+  bash run_batch.sh
+ 
